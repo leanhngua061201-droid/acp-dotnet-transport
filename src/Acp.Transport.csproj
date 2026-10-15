@@ -3,9 +3,9 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <Version>0.1.0</Version>
+    <Version>0.2.0</Version>
     <Description>Experimental newline-delimited JSON-RPC transport for ACP integrations.</Description>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageLicenseExpression>AGPL-3.0-only</PackageLicenseExpression>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 </Project>

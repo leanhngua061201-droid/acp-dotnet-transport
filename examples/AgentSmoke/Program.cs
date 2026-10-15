@@ -82,7 +82,7 @@ try
     using var initialized = await transport.RequestAsync("initialize", new
     {
         protocolVersion = 1,
-        clientInfo = new { name = "acp-dotnet-transport-smoke", version = "0.1.0" },
+        clientInfo = new { name = "acp-dotnet-transport-smoke", version = "0.2.0" },
         clientCapabilities = new { }
     }, cancellationToken: deadline.Token);
     var version = initialized.RootElement.GetProperty("protocolVersion").GetInt32();

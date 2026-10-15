@@ -2,13 +2,21 @@
 
 [![Verify](https://github.com/leanhngua061201-droid/acp-dotnet-transport/actions/workflows/verify.yml/badge.svg)](https://github.com/leanhngua061201-droid/acp-dotnet-transport/actions/workflows/verify.yml)
 [![.NET 8](https://img.shields.io/badge/.NET-8-512BD4)](https://dotnet.microsoft.com/download/dotnet/8.0)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![License: AGPL v3](https://img.shields.io/badge/License-AGPL--3.0-orange.svg)](LICENSE)
 
 [中文说明](README.zh-CN.md) · [Validation record](VALIDATION.md) · [Contributing](CONTRIBUTING.md)
 
 An experimental .NET 8 transport component for [Agent Client Protocol](https://agentclientprotocol.com/) integrations. It exchanges newline-delimited UTF-8 JSON-RPC 2.0 messages over caller-supplied input and output streams. It uses the .NET base class library and has no third-party package dependencies.
 
 This repository contains the transport layer, focused checks, and a runnable local example. It does not implement a complete ACP client, agent runtime, session manager, authentication, file access, terminal execution, or permission policy.
+
+## License
+
+This project is licensed under the **GNU Affero General Public License v3.0
+only (AGPL-3.0-only)**. If you distribute a modified version, or make a
+modified version available for users to interact with over a network, provide
+the corresponding source under the same license as required by AGPLv3. See
+[`LICENSE`](LICENSE) for the complete terms.
 
 ## Why use it?
 
@@ -86,10 +94,10 @@ Console.Error.WriteLine(result.RootElement);
 
 ## Status and limits
 
-Version 0.1.0 is an experimental source release with no API stability promise. Twenty checks cover correlation, cancellation notification shape, notifications/reverse requests, nonblocking reverse-request dispatch, unknown response IDs, request timeout, message size/UTF-8, peer closure, blocked-send timeout and caller cancellation, partial-write cancellation, cancellation before writing, bounded late-response bookkeeping, shutdown races, throwing cancellation callbacks, and concurrent traffic. The default suite includes 10,000 requests with fragmented writes and 2,056 late replies after cancellation or timeout. These are focused checks, not exhaustive coverage of races or backpressure.
+Version 0.2.0 is an experimental source release with no API stability promise. Twenty checks cover correlation, cancellation notification shape, notifications/reverse requests, nonblocking reverse-request dispatch, unknown response IDs, request timeout, message size/UTF-8, peer closure, blocked-send timeout and caller cancellation, partial-write cancellation, cancellation before writing, bounded late-response bookkeeping, shutdown races, throwing cancellation callbacks, and concurrent traffic. The default suite includes 10,000 requests with fragmented writes and 2,056 late replies after cancellation or timeout. These are focused checks, not exhaustive coverage of races or backpressure.
 
 On 2026-10-15, the standalone client completed `initialize` (protocol version 1), `session/new`, and `session/prompt` against `@agentclientprotocol/claude-agent-acp` 0.90.0 with Claude CLI 2.1.210. The agent used `glm-5.3-flash` through an Anthropic-compatible backend; the prompt returned the exact expected sentinel with `end_turn`, five session updates, and no host operations in 13.78 seconds. This validates one real-agent text round trip, not an Anthropic Claude model or every ACP capability. Real-agent tool requests, cancellation, and session resume remain unverified. See [VALIDATION.md](VALIDATION.md) for the precise test scope and limitations.
 
 A complete host must implement ACP initialization/capability negotiation and session methods, authentication, cancellation, and any advertised reverse-request capabilities. Transport-level support for arbitrary method names does not implement those methods.
 
-See [README.zh-CN.md](README.zh-CN.md) for the Chinese overview. License: [MIT](LICENSE).
+See [README.zh-CN.md](README.zh-CN.md) for the Chinese overview. License: [AGPL-3.0-only](LICENSE).

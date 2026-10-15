@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.0
+
+- Re-license the standalone project under GNU AGPLv3-only. Modified versions,
+  including modified network services, must provide corresponding source under
+  the license terms. The previous v0.1.0 MIT release remains in its original
+  historical form.
+- Bump the library version and documentation to 0.2.0.
+
 ## 0.1.0
 
 - Initial standalone source preview with a .NET 8 library, console checks, local duplex example, MIT license, and CI workflow.
