@@ -1,0 +1,23 @@
+name: Verify
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  verify:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - name: Build library
+        run: dotnet build src/Acp.Transport.csproj -c Release --warnaserror
+      - name: Run transport checks
+        run: dotnet run --project tests/Acp.Transport.Tests.csproj -c Release
+      - name: Run local duplex example
+        run: dotnet run --project examples/Loopback/Acp.Transport.Example.csproj -c Release
+      - name: Build opt-in real-agent smoke client
+        run: dotnet build examples/AgentSmoke/Acp.Transport.AgentSmoke.csproj -c Release --warnaserror
