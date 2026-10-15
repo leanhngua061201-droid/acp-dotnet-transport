@@ -29,7 +29,7 @@ dotnet run --project examples/Loopback/Acp.Transport.Example.csproj -c Release
 dotnet build examples/AgentSmoke/Acp.Transport.AgentSmoke.csproj -c Release --warnaserror
 ```
 
-The checks use controlled streams. The Loopback example connects two local transports with anonymous pipes and simulates a peer; it does not contact a real agent or an API. The opt-in [AgentSmoke client](examples/AgentSmoke/README.md) launches a real external agent; normal verification only builds it. Windows is the locally verified platform. The included GitHub Actions workflow also targets Linux; a remote workflow run is needed to establish that result.
+The checks use controlled streams. The Loopback example connects two local transports with anonymous pipes and simulates a peer; it does not contact a real agent or an API. The opt-in [AgentSmoke client](examples/AgentSmoke/README.md) launches a real external agent; normal verification only builds it. The GitHub Actions workflow has passed on Windows and Linux. The real-agent text check was run locally on Windows; see [VALIDATION.md](VALIDATION.md).
 
 On Windows, `powershell -NoProfile -ExecutionPolicy Bypass -File ./verify.ps1` runs these steps. Pass `-DotNetPath` if the SDK executable is outside `PATH`. The test runner is a console program; use `dotnet run` as shown above rather than `dotnet test`.
 

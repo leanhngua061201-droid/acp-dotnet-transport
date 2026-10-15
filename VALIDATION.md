@@ -59,9 +59,17 @@ available model resolved this test's blocker without a transport code change.
 The successful run establishes one initialization/session/text-prompt sequence;
 it does not establish all agent methods, models, or backend configurations.
 
+## Remote CI
+
+On 2026-10-15, [GitHub Actions run 38735206688](https://github.com/leanhngua061201-droid/acp-dotnet-transport/actions/runs/38735206688)
+passed on both `windows-latest` and `ubuntu-latest` for the initial source commit
+`d7f4049a04c038dd11ae16b943b4018bb4c883ea`. Both jobs built the library with
+warnings treated as errors, ran all 20 transport checks, ran the local duplex
+example, and built AgentSmoke. No external agent or model API was invoked by CI.
+The real-agent text result above remains a local Windows observation.
+
 ## Remaining limits
 
-- No remote GitHub Actions run has been performed; Linux execution is unverified.
 - Streams and handlers must cooperate with cancellation. Shutdown does not
   forcibly close caller-owned streams or interrupt an uncooperative handler.
 - These checks cover selected concurrency failures; they are not an exhaustive

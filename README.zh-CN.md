@@ -47,4 +47,4 @@ dotnet run --project tests/Acp.Transport.Tests.csproj -c Release -- --soak-secon
 
 释放连接会取消并等待读循环、发送操作和反向处理器结束；多处同时释放会等待同一次清理。底层输入、输出和处理器必须响应取消，否则释放会持续等待；回调内部也应避免等待同一连接的释放。释放后调用方的流保持打开。取消回调抛异常时，先完成清理，再由 `DisposeAsync` 报错。
 
-本机验证使用 Windows。CI 同时配置了 Windows 与 Linux，远端尚未运行。详见英文 README 的流所有权、回调、错误处理与协议范围说明。
+GitHub Actions 已在 Windows 与 Linux 上通过构建、20 项检查和本地双工示例；真实 Agent 文本验收在本机 Windows 上完成。详见验收记录，以及英文 README 的流所有权、回调、错误处理与协议范围说明。

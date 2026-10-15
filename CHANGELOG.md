@@ -12,3 +12,4 @@
 - Expand the default suite to 20 checks, including shutdown races, 10,000 correlated requests with fragmented concurrent writes, and 2,056 cancelled/timed-out late responses.
 - Add an opt-in timed soak check and a process-based real-agent smoke client. Verify initialization, session creation, and an exact-sentinel text reply with Claude Agent ACP 0.90.0 and Claude CLI 2.1.210 using GLM through an Anthropic-compatible backend; leave real-agent tools, cancellation, and resume unverified.
 - Require an exact sentinel reply in the smoke client, and continue all cleanup steps even if one fails; report only exception types for external-agent errors.
+- Publish English and Chinese overviews, a contribution guide and a measured validation record; verify library builds, all 20 checks and the local duplex example in GitHub Actions on Windows and Linux.
