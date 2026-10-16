@@ -3,9 +3,18 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <Version>0.2.0</Version>
-    <Description>Experimental newline-delimited JSON-RPC transport for ACP integrations.</Description>
-    <PackageLicenseExpression>AGPL-3.0-only</PackageLicenseExpression>
-    <IsPackable>false</IsPackable>
+    <Version>0.2.1</Version>
+    <Description>Experimental newline-delimited JSON-RPC duplex transport for ACP integrations. Zero third-party dependencies.</Description>
+    <PackageId>Acp.Transport</PackageId>
+    <Authors>chenix</Authors>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/leanhngua061201-droid/acp-dotnet-transport</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/leanhngua061201-droid/acp-dotnet-transport</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <IsPackable>true</IsPackable>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
 </Project>

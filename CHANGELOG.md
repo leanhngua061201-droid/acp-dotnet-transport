@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.2.1
+
+- Re-license under the MIT License (previously AGPL-3.0-only as of 0.2.0). The
+  project is a transport library meant to be embedded anywhere; the permissive
+  license removes the adoption barrier. All license references in the English
+  README, the Chinese README, and the contribution guide were updated to match.
+- Add NuGet package metadata (`Acp.Transport`) so the library can be packed and
+  published; the package now carries the README.
+- Document how this transport compares with fuller .NET ACP SDKs (dotacp,
+  AcpSdk, nuskey8/acp-csharp) in both READMEs.
+
 ## 0.2.0
 
 - Re-license the standalone project under GNU AGPLv3-only. Modified versions,

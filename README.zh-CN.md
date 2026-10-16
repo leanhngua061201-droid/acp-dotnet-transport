@@ -24,6 +24,21 @@
 
 它的定位是传输库。完整的 ACP SDK、Agent 宿主、模型调用、认证、会话恢复、文件与终端操作、权限策略，均由上层应用实现。
 
+## 和其他 .NET ACP 库的对比
+
+.NET 生态已有更完整的 ACP SDK，例如 [dotacp](https://github.com/timxx/dotacp)
+（协议 + 客户端 + Agent）、[AcpSdk](https://www.nuget.org/packages/AcpSdk)
+（基于 StreamJsonRpc）和 [nuskey8/acp-csharp](https://github.com/nuskey8/acp-csharp)。
+需要开箱即用的完整客户端或 Agent 实现时，优先考虑它们。
+
+本仓库刻意只做更低的一层：
+
+- **零第三方依赖。** 只链接 .NET 8 基础类库，不会给项目引入任何额外依赖。
+- **只做传输层。** 负责请求关联、通知与反向请求分发、取消与关闭语义；不实现 ACP 会话方法、认证或宿主策略。
+- **行为有实测依据。** 列出的每个行为——写入中途取消、关闭竞态、迟到响应簿记、10,000 次请求的分片并发关联——都有对应的回归检查，真实 Agent 往返记录见[验收记录](VALIDATION.md)。
+
+需要完整 SDK 就用完整 SDK；需要一个可审计的小管道把宿主接到任意 ACP Agent，这个仓库就是那根管道。
+
 ## 怎么运行
 
 需要 .NET 8 SDK。在本目录打开终端：

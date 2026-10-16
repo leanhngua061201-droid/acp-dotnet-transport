@@ -25,6 +25,22 @@ portions of it. See [`LICENSE`](LICENSE) for the complete terms.
 - **Start without extra packages.** The library targets .NET 8 and uses only the base class library. Runnable examples show local duplex traffic and an opt-in real-agent connection.
 - **Inspect the evidence.** Twenty checks include 10,000 requests with up to 64 in flight and fragmented writes. A real external ACP agent has completed a text round trip; [the validation record](VALIDATION.md) identifies the exact scope.
 
+## How it compares to other .NET ACP libraries
+
+The .NET ecosystem already has fuller ACP SDKs, for example
+[dotacp](https://github.com/timxx/dotacp) (protocol + client + agent),
+[AcpSdk](https://www.nuget.org/packages/AcpSdk) (built on StreamJsonRpc), and
+[nuskey8/acp-csharp](https://github.com/nuskey8/acp-csharp). Choose one of those
+when you want a complete client or agent implementation out of the box.
+
+This repository deliberately stays one layer lower:
+
+- **Zero third-party dependencies.** The library links only the .NET 8 base class library, so nothing else enters your dependency graph.
+- **Transport only, by contract.** It correlates requests, dispatches notifications and reverse requests, and owns cancellation and shutdown semantics. It does not implement ACP session methods, authentication, or host policy; those belong to the embedding application.
+- **Measured behavior, not claims.** Every listed behavior — cancellation mid-frame, shutdown races, late-response bookkeeping, 10,000-request correlation with fragmented writes — has a focused regression check, and a real-agent round trip is recorded in [VALIDATION.md](VALIDATION.md).
+
+If you need a full SDK, use a full SDK. If you need a small, auditable pipe between your host and any ACP agent, this is that pipe.
+
 ## Build and run
 
 Install the .NET 8 SDK, then run from the repository root:
