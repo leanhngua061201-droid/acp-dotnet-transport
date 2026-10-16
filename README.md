@@ -2,7 +2,7 @@
 
 [![Verify](https://github.com/leanhngua061201-droid/acp-dotnet-transport/actions/workflows/verify.yml/badge.svg)](https://github.com/leanhngua061201-droid/acp-dotnet-transport/actions/workflows/verify.yml)
 [![.NET 8](https://img.shields.io/badge/.NET-8-512BD4)](https://dotnet.microsoft.com/download/dotnet/8.0)
-[![License: AGPL v3](https://img.shields.io/badge/License-AGPL--3.0-orange.svg)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 [中文说明](README.zh-CN.md) · [Validation record](VALIDATION.md) · [Contributing](CONTRIBUTING.md)
 
@@ -12,11 +12,10 @@ This repository contains the transport layer, focused checks, and a runnable loc
 
 ## License
 
-This project is licensed under the **GNU Affero General Public License v3.0
-only (AGPL-3.0-only)**. If you distribute a modified version, or make a
-modified version available for users to interact with over a network, provide
-the corresponding source under the same license as required by AGPLv3. See
-[`LICENSE`](LICENSE) for the complete terms.
+This project is licensed under the **MIT License**. You may use, copy, modify,
+merge, publish, distribute, sublicense, and sell copies of the software, subject
+to including the copyright and permission notices in all copies or substantial
+portions of it. See [`LICENSE`](LICENSE) for the complete terms.
 
 ## Why use it?
 
@@ -100,4 +99,4 @@ On 2026-10-15, the standalone client completed `initialize` (protocol version 1)
 
 A complete host must implement ACP initialization/capability negotiation and session methods, authentication, cancellation, and any advertised reverse-request capabilities. Transport-level support for arbitrary method names does not implement those methods.
 
-See [README.zh-CN.md](README.zh-CN.md) for the Chinese overview. License: [AGPL-3.0-only](LICENSE).
+See [README.zh-CN.md](README.zh-CN.md) for the Chinese overview. License: [MIT](LICENSE).

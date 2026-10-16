@@ -3,7 +3,7 @@
 Small, focused fixes and reproducible bug reports are welcome. This project is
 an experimental transport component; protocol methods and host policy belong
 to the embedding application. Contributions are made available under the
-project's AGPL-3.0-only license.
+project's MIT license.
 
 ## Verify a change
 
